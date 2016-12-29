@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9736338D1E0C945400121F51 /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
 		97B19F571DAA76A10021EE2A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B19F561DAA76A10021EE2A /* main.c */; };
+		97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
+		97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
+		97F052751E0DE4CE000F2842 /* generatePemFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052731E0DE4CE000F2842 /* generatePemFile.c */; };
+		97F052781E145741000F2842 /* getPeerKey.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052761E145741000F2842 /* getPeerKey.c */; };
+		97F0527A1E154C19000F2842 /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +29,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9736338B1E0C945400121F51 /* keyGeneration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyGeneration.c; sourceTree = "<group>"; };
+		9736338C1E0C945400121F51 /* keyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyGeneration.h; sourceTree = "<group>"; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F561DAA76A10021EE2A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		97D12FDF1E0DDE4F0059EFCF /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		97F052731E0DE4CE000F2842 /* generatePemFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generatePemFile.c; sourceTree = "<group>"; };
+		97F052741E0DE4CE000F2842 /* generatePemFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generatePemFile.h; sourceTree = "<group>"; };
+		97F052761E145741000F2842 /* getPeerKey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getPeerKey.c; sourceTree = "<group>"; };
+		97F052771E145741000F2842 /* getPeerKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getPeerKey.h; sourceTree = "<group>"; };
+		97F052791E154C19000F2842 /* generateHmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generateHmac.c; sourceTree = "<group>"; };
+		97F0527B1E154C26000F2842 /* generateHmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generateHmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */,
+				97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +61,8 @@
 			children = (
 				97B19F551DAA76A10021EE2A /* magicPointers */,
 				97B19F541DAA76A10021EE2A /* Products */,
+				97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */,
+				97D12FDF1E0DDE4F0059EFCF /* libssl.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +78,14 @@
 			isa = PBXGroup;
 			children = (
 				97B19F561DAA76A10021EE2A /* main.c */,
+				9736338B1E0C945400121F51 /* keyGeneration.c */,
+				9736338C1E0C945400121F51 /* keyGeneration.h */,
+				97F052731E0DE4CE000F2842 /* generatePemFile.c */,
+				97F052741E0DE4CE000F2842 /* generatePemFile.h */,
+				97F052791E154C19000F2842 /* generateHmac.c */,
+				97F0527B1E154C26000F2842 /* generateHmac.h */,
+				97F052761E145741000F2842 /* getPeerKey.c */,
+				97F052771E145741000F2842 /* getPeerKey.h */,
 			);
 			path = magicPointers;
 			sourceTree = "<group>";
@@ -88,7 +116,7 @@
 		97B19F4B1DAA76A10021EE2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = youdog;
 				TargetAttributes = {
 					97B19F521DAA76A10021EE2A = {
@@ -120,7 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F052751E0DE4CE000F2842 /* generatePemFile.c in Sources */,
 				97B19F571DAA76A10021EE2A /* main.c in Sources */,
+				97F0527A1E154C19000F2842 /* generateHmac.c in Sources */,
+				97F052781E145741000F2842 /* getPeerKey.c in Sources */,
+				9736338D1E0C945400121F51 /* keyGeneration.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +177,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -192,6 +225,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -217,16 +251,28 @@
 		97B19F5B1DAA76A10021EE2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = U8MSEX235L;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "#include \"transportKey.h\"\n#include <stdio.h>\n#include <openssl/evp.h>\n#include <openssl/err.h>\n#include <openssl/ec.h>\n#include <strings.h>\n#include <stdlib.h>  // required for Malloc\n\nvoid *generate_ec_key(int type)\n{\n    EVP_PKEY_CTX *pctx = NULL, *kctx = NULL;\n    EVP_PKEY *params = NULL, *key = NULL;\n    printf(\"the enum is %d\", type);\n    \n    /* Check whether we need to generate parameters first */\n    if(type == EVP_PKEY_EC || type == EVP_PKEY_DSA || type == EVP_PKEY_DH)\n    {\n        /* Create the context for generating the parameters */\n        if(!(pctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n        if(!EVP_PKEY_paramgen_init(pctx)) goto err;\n        \n        /* Set the paramgen parameters according to the type */\n        switch(type)\n        {\n            case EVP_PKEY_EC:\n                if(!EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx,\n                                                           NID_X9_62_prime256v1)) goto err;\n                break;\n        }\n        \n        \n        /* Generate parameters */\n        if (!EVP_PKEY_paramgen(pctx, &params)) goto err;\n        \n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new(params, NULL))) goto err;\n    }\n    else\n    {\n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n    }\n    \n    /* Generate the key */\n    \n    if(!EVP_PKEY_keygen_init(kctx)) goto err;\n    \n    if (!EVP_PKEY_keygen(kctx, &key)) goto err;\n    \n    goto end;\nerr:\n    \n    ERR_print_errors_fp(stderr);\n    \nend:\n    \n    if(pctx) EVP_PKEY_CTX_free(pctx);\n    if(params) EVP_PKEY_free(params);\n    if(kctx) EVP_PKEY_CTX_free(kctx);\n    \n    return key;\n}#include \"transportKey.h\"\n#include <stdio.h>\n#include <openssl/evp.h>\n#include <openssl/err.h>\n#include <openssl/ec.h>\n#include <strings.h>\n#include <stdlib.h>  // required for Malloc\n\nvoid *generate_ec_key(int type)\n{\n    EVP_PKEY_CTX *pctx = NULL, *kctx = NULL;\n    EVP_PKEY *params = NULL, *key = NULL;\n    printf(\"the enum is %d\", type);\n    \n    /* Check whether we need to generate parameters first */\n    if(type == EVP_PKEY_EC || type == EVP_PKEY_DSA || type == EVP_PKEY_DH)\n    {\n        /* Create the context for generating the parameters */\n        if(!(pctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n        if(!EVP_PKEY_paramgen_init(pctx)) goto err;\n        \n        /* Set the paramgen parameters according to the type */\n        switch(type)\n        {\n            case EVP_PKEY_EC:\n                if(!EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx,\n                                                           NID_X9_62_prime256v1)) goto err;\n                break;\n        }\n        \n        \n        /* Generate parameters */\n        if (!EVP_PKEY_paramgen(pctx, &params)) goto err;\n        \n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new(params, NULL))) goto err;\n    }\n    else\n    {\n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n    }\n    \n    /* Generate the key */\n    \n    if(!EVP_PKEY_keygen_init(kctx)) goto err;\n    \n    if (!EVP_PKEY_keygen(kctx, &key)) goto err;\n    \n    goto end;\nerr:\n    \n    ERR_print_errors_fp(stderr);\n    \nend:\n    \n    if(pctx) EVP_PKEY_CTX_free(pctx);\n    if(params) EVP_PKEY_free(params);\n    if(kctx) EVP_PKEY_CTX_free(kctx);\n    \n    return key;\n}\n/usr/local/ssl/include";
 			};
 			name = Debug;
 		};
 		97B19F5C1DAA76A10021EE2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DEVELOPMENT_TEAM = U8MSEX235L;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "#include \"transportKey.h\"\n#include <stdio.h>\n#include <openssl/evp.h>\n#include <openssl/err.h>\n#include <openssl/ec.h>\n#include <strings.h>\n#include <stdlib.h>  // required for Malloc\n\nvoid *generate_ec_key(int type)\n{\n    EVP_PKEY_CTX *pctx = NULL, *kctx = NULL;\n    EVP_PKEY *params = NULL, *key = NULL;\n    printf(\"the enum is %d\", type);\n    \n    /* Check whether we need to generate parameters first */\n    if(type == EVP_PKEY_EC || type == EVP_PKEY_DSA || type == EVP_PKEY_DH)\n    {\n        /* Create the context for generating the parameters */\n        if(!(pctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n        if(!EVP_PKEY_paramgen_init(pctx)) goto err;\n        \n        /* Set the paramgen parameters according to the type */\n        switch(type)\n        {\n            case EVP_PKEY_EC:\n                if(!EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx,\n                                                           NID_X9_62_prime256v1)) goto err;\n                break;\n        }\n        \n        \n        /* Generate parameters */\n        if (!EVP_PKEY_paramgen(pctx, &params)) goto err;\n        \n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new(params, NULL))) goto err;\n    }\n    else\n    {\n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n    }\n    \n    /* Generate the key */\n    \n    if(!EVP_PKEY_keygen_init(kctx)) goto err;\n    \n    if (!EVP_PKEY_keygen(kctx, &key)) goto err;\n    \n    goto end;\nerr:\n    \n    ERR_print_errors_fp(stderr);\n    \nend:\n    \n    if(pctx) EVP_PKEY_CTX_free(pctx);\n    if(params) EVP_PKEY_free(params);\n    if(kctx) EVP_PKEY_CTX_free(kctx);\n    \n    return key;\n}#include \"transportKey.h\"\n#include <stdio.h>\n#include <openssl/evp.h>\n#include <openssl/err.h>\n#include <openssl/ec.h>\n#include <strings.h>\n#include <stdlib.h>  // required for Malloc\n\nvoid *generate_ec_key(int type)\n{\n    EVP_PKEY_CTX *pctx = NULL, *kctx = NULL;\n    EVP_PKEY *params = NULL, *key = NULL;\n    printf(\"the enum is %d\", type);\n    \n    /* Check whether we need to generate parameters first */\n    if(type == EVP_PKEY_EC || type == EVP_PKEY_DSA || type == EVP_PKEY_DH)\n    {\n        /* Create the context for generating the parameters */\n        if(!(pctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n        if(!EVP_PKEY_paramgen_init(pctx)) goto err;\n        \n        /* Set the paramgen parameters according to the type */\n        switch(type)\n        {\n            case EVP_PKEY_EC:\n                if(!EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx,\n                                                           NID_X9_62_prime256v1)) goto err;\n                break;\n        }\n        \n        \n        /* Generate parameters */\n        if (!EVP_PKEY_paramgen(pctx, &params)) goto err;\n        \n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new(params, NULL))) goto err;\n    }\n    else\n    {\n        /* Create context for the key generation */\n        if(!(kctx = EVP_PKEY_CTX_new_id(type, NULL))) goto err;\n    }\n    \n    /* Generate the key */\n    \n    if(!EVP_PKEY_keygen_init(kctx)) goto err;\n    \n    if (!EVP_PKEY_keygen(kctx, &key)) goto err;\n    \n    goto end;\nerr:\n    \n    ERR_print_errors_fp(stderr);\n    \nend:\n    \n    if(pctx) EVP_PKEY_CTX_free(pctx);\n    if(params) EVP_PKEY_free(params);\n    if(kctx) EVP_PKEY_CTX_free(kctx);\n    \n    return key;\n}\n/usr/local/ssl/include";
 			};
 			name = Release;
 		};
@@ -249,6 +295,7 @@
 				97B19F5C1DAA76A10021EE2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
