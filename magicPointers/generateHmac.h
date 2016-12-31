@@ -8,6 +8,11 @@
 
 #include <openssl/evp.h>
 #include <openssl/err.h>
+#include <openssl/hmac.h>
+#include <openssl/sha.h>
+
+
+void generate_sha256_hmac(unsigned char *key, size_t kenlen);
 
 void print_it(const char* label, const unsigned char* buff, size_t len);
 

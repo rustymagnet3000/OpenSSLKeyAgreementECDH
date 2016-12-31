@@ -1,5 +1,15 @@
 #include "generateHmac.h"
 
+void generate_sha256_hmac(unsigned char *key, size_t kenlen)
+{
+    int i;
+    HMAC_CTX ctx;
+    unsigned int len;
+    unsigned char out[SHA256_DIGEST_LENGTH];
+    
+    HMAC_cleanup(&ctx);
+}
+
 int sign_it(const unsigned char* msg, size_t mlen, unsigned char** sig, size_t* slen, EVP_PKEY* pkey)
 {
     /* Returned to caller */
