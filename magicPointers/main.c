@@ -51,7 +51,7 @@ unsigned char *read_file(FILE *f, int *len)
     
 int hmac_file_and_print(unsigned char *fname)
 {
-    static const char key[16] = { 0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b };
+    static const char key[16] = { 0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11 };
     
     FILE *fp = fopen(DERIVED_KEY_FILENAME, "rb");
     unsigned char *contents;
@@ -62,17 +62,18 @@ int hmac_file_and_print(unsigned char *fname)
         return (0);
     
     contents = read_file(fp, &flen);
+
     fclose(fp);
     if(!contents)
         return 0;
     
     HMAC(EVP_sha256(), key, sizeof(key), contents, flen, result, &dlen);
     
-    printf("HMAC(%s, ", fname);
+    printf("HMAC (%s, ", fname);
     print_hex(key, sizeof(key));
     printf(")=");
     print_hex(result, dlen);
-    printf("\n");
+
     return 1;
     
 }
@@ -88,55 +89,12 @@ int main()
 
     const unsigned char msg[] = "Hi There";
     const unsigned char static_key[] = "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"; // test vector
-    int length_key = strlen(static_key);
-    
-    unsigned char* key_static = (unsigned char *)malloc(256 * sizeof(unsigned char));
-    
-    /* EVP_PKEY_EC is an enum value with an Int value of 408 */
-    //  generate_ec_key(EVP_PKEY_EC);
+    unsigned char result[EVP_MAX_MD_SIZE];
+    unsigned int dlen;
 
     printf("Testing HMAC functions with EVP_DigestSign\n");
-
-    
-    /* Sign HMAC key */
-    EVP_PKEY *skey = NULL;
-    // const EVP_MD* md = EVP_get_digestbyname("SHA256");
-    // unsigned int size = EVP_MD_size(md);
-    unsigned int size2
-    = SHA256_DIGEST_LENGTH;
-    
-   // const char *static_key = "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b";
-
-    
-    
-    skey = EVP_PKEY_new_mac_key(EVP_PKEY_HMAC, NULL, static_key, length_key);
-    
-    unsigned char *ptr = HMAC(EVP_sha256(), static_key, length_key, msg, sizeof(msg), NULL, NULL);
-    
-    if(ptr != NULL) {
-        printf("Created signature without EVP \n");
-        print_it("Signature", ptr, size2);
-    }
-    
-    assert(skey != NULL);
-    if(skey == NULL) {
-        printf("EVP_PKEY_new_mac_key failed, error 0x%lx\n", ERR_get_error());
-        return(99);
-    }
-    
-    unsigned char* sig = NULL;
-    size_t slen = 0;
-    
-    /* Using the signing key */
-    int rc = sign_it(msg, sizeof(msg), &sig, &slen, skey);
-    assert(rc == 0);
-    if(rc == 0) {
-        printf("Created signature\n");
-        print_it("Signature", sig, slen);
-    } else {
-        printf("Failed to create signature, return code %d\n", rc);
-        exit(1); /* Should cleanup here */
-    }
+  //  HMAC(EVP_sha256(), static_key, sizeof(static_key), msg, sizeof(msg), result, dlen);
+    hmac_file_and_print(DERIVED_KEY_FILENAME);
     
     return(0);
 }
