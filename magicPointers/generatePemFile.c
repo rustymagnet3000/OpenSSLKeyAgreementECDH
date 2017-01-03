@@ -6,10 +6,7 @@
 void *generate_pem_file(EVP_PKEY *evp_pkey)
 {
     FILE *fp;
-   // const EVP_CIPHER *EVP_aes_256_cbc;
-   // unsigned char* PrivKeyPassword = (unsigned char*) "denmark1";
 
-    /* w = If a file with the same name already exists, its content is erased and the file is considered as a new empty file. */
     if((fp = fopen(PUBLIC_KEY_FILENAME, "w")) == NULL)
         goto err;
     

@@ -13,7 +13,7 @@ unsigned char *generate_sha256_hmac(unsigned char *key, size_t keylen, unsigned 
     HMAC_Final(&ctx, out, &len);
     
     for(i = 0; i < len; i++)
-        sprintf(&(res_hexstring[i * 2]), "%02x", out[i]);
+        sprintf((char *)&(res_hexstring[i * 2]), "%02x", out[i]);
     
     HMAC_cleanup(&ctx);
     return res_hexstring;
