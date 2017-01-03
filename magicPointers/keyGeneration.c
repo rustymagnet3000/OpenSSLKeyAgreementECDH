@@ -11,16 +11,16 @@ unsigned char *generate_ecdh(size_t *secret_len)
     EVP_PKEY_CTX *pctx, *kctx;
     EVP_PKEY_CTX *ctx;
     unsigned char *secret;
+    static char secret_hexstring[32];
     EVP_PKEY *pkey = NULL, *peerkey, *params = NULL;
-    /* NB: assumes pkey, peerkey have been already set up */
-    
+
     /* Create the context for parameter generation */
     if(NULL == (pctx = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, NULL))) handleErrors();
     
     /* Initialise the parameter generation */
     if(1 != EVP_PKEY_paramgen_init(pctx)) handleErrors();
     
-    /* We're going to use the ANSI X9.62 Prime 256v1 curve */
+    /* NIST-Prime-256 = ANSI X9.62 Prime 256v1 curve in OpenSSL enum value */
     if(1 != EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx, NID_X9_62_prime256v1)) handleErrors();
  
     /* Create the parameter object params */
@@ -57,15 +57,13 @@ unsigned char *generate_ecdh(size_t *secret_len)
     /* Derive the shared secret */
     if(1 != (EVP_PKEY_derive(ctx, secret, secret_len))) handleErrors();
     
-    /* TO DO: HMAC THE SECRET */
-    
-    
-    printf("✅ Secret Key derived from peer key:\t");
-    
     int i;
     for(i = 0; i < *secret_len; i++)
-        printf("%02x", secret[i]);
-    printf("\n");
+    {
+        sprintf(&(secret_hexstring[i * 2]), "%02x", secret[i]);
+    }
+
+    printf("✅\tSecret Key derived from peer key:\n%s", secret_hexstring);
 
     EVP_PKEY_CTX_free(ctx);
     EVP_PKEY_free(peerkey);

@@ -21,11 +21,11 @@ void *get_peer_key()
     if (peerKey == NULL)
         goto err;
 
-    printf("✅ read %lu characters from Peer Public Key file\n\n", fileLength);
+    printf("✅\tRead %lu characters from Peer Public Key file\n", fileLength);
     goto end;
     
 err:
-    printf("❗️error reading peer public key\n\n");
+    printf("❗️error reading peer public key\n");
     ERR_print_errors_fp(stderr);
     
 end:
