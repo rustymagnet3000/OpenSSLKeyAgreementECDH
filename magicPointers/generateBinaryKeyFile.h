@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-void *generate_bin_key_file(unsigned char *derived_secret, size_t *secret_size);
+void *generate_bin_key_file(unsigned char *derived_secret);
 
 #endif /* generateBinaryKeyFile_h */

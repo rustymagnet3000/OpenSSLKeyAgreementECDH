@@ -17,11 +17,11 @@ int main()
     for(i = 0; i < 32; i++)
         printf("%02x", derived_secret[i]);
 
-    unsigned char *hashedDerivedKey = generate_sha256_hmac(key, &key_size, derived_secret, &secret_size);
-        
-    printf("\n✅\tDerived SHA256-HMAC digest was: \n%s\n\n", hashedDerivedKey);
+    unsigned char *derived_keyed_hashed = generate_sha256_hmac(key, &key_size, derived_secret, &secret_size);
     
-    generate_bin_key_file(derived_secret, &secret_size);
+    printf("\n✅\tDerived SHA256-HMAC digest was: \n%s\n\n", derived_keyed_hashed);
+    
+    generate_bin_key_file(derived_keyed_hashed);
 
     return(0);
 }
