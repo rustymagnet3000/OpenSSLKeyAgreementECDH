@@ -21,7 +21,7 @@ void *get_peer_key()
     if (peerKey == NULL)
         goto err;
 
-    printf("✅\tRead %lu characters from Peer Public Key file\n", fileLength);
+    printf("✅\tRead %lu characters from Peer Public Key file", fileLength);
     goto end;
     
 err:

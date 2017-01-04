@@ -11,7 +11,6 @@ unsigned char *generate_ecdh(size_t *secret_len)
     EVP_PKEY_CTX *pctx, *kctx;
     EVP_PKEY_CTX *ctx;
     unsigned char *secret;
-    static char secret_hexstring[32];
     EVP_PKEY *pkey = NULL, *peerkey, *params = NULL;
 
     /* Create the context for parameter generation */
@@ -57,14 +56,6 @@ unsigned char *generate_ecdh(size_t *secret_len)
     /* Derive the shared secret */
     if(1 != (EVP_PKEY_derive(ctx, secret, secret_len))) handleErrors();
     
-    int i;
-    for(i = 0; i < *secret_len; i++)
-    {
-        sprintf(&(secret_hexstring[i * 2]), "%02x", secret[i]);
-    }
-
-    printf("✅\tSecret Key derived from peer key:\n%s", secret_hexstring);
-
     EVP_PKEY_CTX_free(ctx);
     EVP_PKEY_free(peerkey);
     EVP_PKEY_free(pkey);

@@ -20,7 +20,7 @@ void *generate_pem_file(EVP_PKEY *evp_pkey)
     if (!PEM_write_PrivateKey(fp, evp_pkey, NULL, NULL, 0, 0, NULL))
         goto err;
     
-    printf("✅\tWritten Server PEM files\n");
+    printf("✅\tGenerated EC Key Pair and written PEM files\n");
     goto end;
 
 err:

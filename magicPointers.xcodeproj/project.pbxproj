@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9736338D1E0C945400121F51 /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
+		973CD4E31E1D72D4006CDB2F /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
 		97B19F571DAA76A10021EE2A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B19F561DAA76A10021EE2A /* main.c */; };
 		97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
 		97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		9736338B1E0C945400121F51 /* keyGeneration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyGeneration.c; sourceTree = "<group>"; };
 		9736338C1E0C945400121F51 /* keyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyGeneration.h; sourceTree = "<group>"; };
+		973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generateBinaryKeyFile.c; sourceTree = "<group>"; };
+		973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generateBinaryKeyFile.h; sourceTree = "<group>"; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F561DAA76A10021EE2A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				97B19F561DAA76A10021EE2A /* main.c */,
+				973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */,
+				973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */,
 				9736338B1E0C945400121F51 /* keyGeneration.c */,
 				9736338C1E0C945400121F51 /* keyGeneration.h */,
 				97F052731E0DE4CE000F2842 /* generatePemFile.c */,
@@ -149,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97F052751E0DE4CE000F2842 /* generatePemFile.c in Sources */,
+				973CD4E31E1D72D4006CDB2F /* generateBinaryKeyFile.c in Sources */,
 				97B19F571DAA76A10021EE2A /* main.c in Sources */,
 				97F0527A1E154C19000F2842 /* generateHmac.c in Sources */,
 				97F052781E145741000F2842 /* getPeerKey.c in Sources */,
