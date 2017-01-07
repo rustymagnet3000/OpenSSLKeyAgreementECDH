@@ -5,7 +5,7 @@ The code in this repo used OpenSSL's C code library.  The commands in this READM
 Diffie-Hellman is a Key Agreement protocol.  It is used when two parties want to derive the same shared secret over an insecure channel. The secret key cannot be observed by intercepting the communication between the two parties.  
 
  - Each party MUST share their own EC Public Key with the other party.
- - Each party MUST know the Named Curved being used before generating the EC Key Pair.
+ - Each party MUST agree on the Named Curved being used before generating the EC Key Pair.
  - The two parties NEVER exchange the derived key.  
 
 ### Background - Diffie-Hellman alone is not enough
