@@ -1,13 +1,20 @@
 # Overview
-This code uses OpenSSL's C code library and OpenSSL's command line tool to demonstrate how ECDH works.
+The code in this repo used OpenSSL's C code library.  The commands in this README.md mirror the same function as the C code but use OpenSSL's command line tool.  The C code represents my User 1 and the command line pieces represent User 2.   This is useful as it helps demo how ECDH works and validates that both sides are deriving the same key. NOTE - the HMAC operation, after the ECDH piece has completed, has been verified against https://tools.ietf.org/html/rfc4231
 
-### Diffie-Hellman Background
-Diffie-Hellman is a Key Agreement protocol to enure two parties can both derive the same shared secret over an insecure channel. The secret key cannot be observed by intercepting the communication between the two parties.  The two parties NEVER exchange a key they are creating a key together.
+### Background - Diffie-Hellman
+Diffie-Hellman is a Key Agreement protocol.  It is used when two parties want to derive the same shared secret over an insecure channel. The secret key cannot be observed by intercepting the communication between the two parties.  
 
-Although Diffie-Hellman key exchange provides strong protection against compromise of intercepted data, it provides no mechanism for ensuring that the entity on the other end of the connection is who you think it is. That is, this protocol is vulnerable to a man-in-the-middle attack. This is where the value of other Data in Transit controls such as Certificate Pinning come into play.
+ - Each party MUST share their own EC Public Key with the other party.
+ - Each party MUST know the Named Curved being used before generating the EC Key Pair.
+ - The two parties NEVER exchange the derived key.  
 
-### Elliptic Curve Background
-Elliptic Curve Diffie-Hellman (ECDH) is an Elliptic Curve variant of the standard Diffie Hellman algorithm.  I like it over RSA as the Key generate happens more quickly in EC due to shorter key lengths and a slightly simpler Key Derivation process (you only need the other side's Public Key as you both have already agreed on a Named Curve).
+### Background - Diffie-Hellman alone is not enough
+Diffie-Hellman provides no mechanism for ensuring that the entity on the other end of the connection is who you think it is. For mobile apps, this is where the value of other Data in Transit controls such as Certificate Pinning, HTTP Basic Auth, Access Token schemes come into play.
+
+### Background - Why use ECDH?
+Elliptic Curve Diffie-Hellman (ECDH) is an Elliptic Curve variant of the standard Diffie Hellman algorithm.  I like it over traditional DH which uses RSA for two reasons:
+ - Key generation is quicker.  This is important for mobile apps when you might rotate your keys or even generate new EC Key Pairs for each session. 
+ - A slightly simpler Key Derivation process.  You only need the other side's Public Key as you both have already agreed on a Named Curve [and the parameters to use in Key Generation].
 
 ### Setup OpenSSL's Command Line Tool
 Print version (and All information) regarding OpenSSL install
