@@ -5,16 +5,19 @@
 
 int main()
 {
-    unsigned char *derived_secret = malloc( sizeof( unsigned char ) * 32 );
-    size_t secret_size = sizeof(derived_secret);
+    size_t secret_size = 32;
+    int i;
+    unsigned char *derived_secret = malloc( sizeof( unsigned char ) * secret_size );
+
+    derived_secret = generate_ecdh(&secret_size);
+
+    
     static unsigned char key[] = {0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B};
     size_t key_size = sizeof(key);
-    derived_secret = generate_ecdh(&secret_size);
     
     printf("\n✅\tSecret Key in memory:\n");
-    int i;
     
-    for(i = 0; i < 32; i++)
+    for(i = 0; i < secret_size; i++)
         printf("%02x", derived_secret[i]);
 
     unsigned char *derived_keyed_hashed = generate_sha256_hmac(key, &key_size, derived_secret, &secret_size);
