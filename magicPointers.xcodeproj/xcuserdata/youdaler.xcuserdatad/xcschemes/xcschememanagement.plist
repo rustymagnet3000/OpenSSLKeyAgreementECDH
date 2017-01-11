@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ecdhKeyAgreement.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>magicPointers.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>97376A341E26368300928397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>97B19F521DAA76A10021EE2A</key>
 		<dict>
 			<key>primary</key>

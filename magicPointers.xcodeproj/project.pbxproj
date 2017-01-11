@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9736338D1E0C945400121F51 /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
+		97376A391E2636A100928397 /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
+		97376A3A1E2636A100928397 /* generateBinaryKeyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */; };
+		97376A3B1E2636A100928397 /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
+		97376A3C1E2636A100928397 /* keyGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9736338C1E0C945400121F51 /* keyGeneration.h */; };
+		97376A3D1E2636A100928397 /* generatePemFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052731E0DE4CE000F2842 /* generatePemFile.c */; };
+		97376A3E1E2636A100928397 /* generatePemFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F052741E0DE4CE000F2842 /* generatePemFile.h */; };
+		97376A3F1E2636A100928397 /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
+		97376A401E2636A100928397 /* generateHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F0527B1E154C26000F2842 /* generateHmac.h */; };
+		97376A411E2636A100928397 /* getPeerKey.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052761E145741000F2842 /* getPeerKey.c */; };
+		97376A421E2636A100928397 /* getPeerKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F052771E145741000F2842 /* getPeerKey.h */; };
+		97376A431E26371C00928397 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
+		97376A441E26371C00928397 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		973CD4E31E1D72D4006CDB2F /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
 		97B19F571DAA76A10021EE2A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B19F561DAA76A10021EE2A /* main.c */; };
 		97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
@@ -32,6 +44,7 @@
 /* Begin PBXFileReference section */
 		9736338B1E0C945400121F51 /* keyGeneration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyGeneration.c; sourceTree = "<group>"; };
 		9736338C1E0C945400121F51 /* keyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyGeneration.h; sourceTree = "<group>"; };
+		97376A351E26368300928397 /* libecdhKeyAgreement.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libecdhKeyAgreement.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generateBinaryKeyFile.c; sourceTree = "<group>"; };
 		973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generateBinaryKeyFile.h; sourceTree = "<group>"; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +60,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		97376A321E26368300928397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97376A441E26371C00928397 /* libssl.a in Frameworks */,
+				97376A431E26371C00928397 /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97B19F501DAA76A10021EE2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				97B19F531DAA76A10021EE2A /* magicPointers */,
+				97376A351E26368300928397 /* libecdhKeyAgreement.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,7 +120,39 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		97376A331E26368300928397 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97376A401E2636A100928397 /* generateHmac.h in Headers */,
+				97376A3E1E2636A100928397 /* generatePemFile.h in Headers */,
+				97376A3C1E2636A100928397 /* keyGeneration.h in Headers */,
+				97376A421E2636A100928397 /* getPeerKey.h in Headers */,
+				97376A3A1E2636A100928397 /* generateBinaryKeyFile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		97376A341E26368300928397 /* ecdhKeyAgreement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "ecdhKeyAgreement" */;
+			buildPhases = (
+				97376A311E26368300928397 /* Sources */,
+				97376A321E26368300928397 /* Frameworks */,
+				97376A331E26368300928397 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ecdhKeyAgreement;
+			productName = ecdhKeyAgreement;
+			productReference = 97376A351E26368300928397 /* libecdhKeyAgreement.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		97B19F521DAA76A10021EE2A /* magicPointers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97B19F5A1DAA76A10021EE2A /* Build configuration list for PBXNativeTarget "magicPointers" */;
@@ -124,6 +179,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = youdog;
 				TargetAttributes = {
+					97376A341E26368300928397 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U8MSEX235L;
+						ProvisioningStyle = Automatic;
+					};
 					97B19F521DAA76A10021EE2A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = U8MSEX235L;
@@ -144,11 +204,24 @@
 			projectRoot = "";
 			targets = (
 				97B19F521DAA76A10021EE2A /* magicPointers */,
+				97376A341E26368300928397 /* ecdhKeyAgreement */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		97376A311E26368300928397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97376A3D1E2636A100928397 /* generatePemFile.c in Sources */,
+				97376A391E2636A100928397 /* generateBinaryKeyFile.c in Sources */,
+				97376A3B1E2636A100928397 /* keyGeneration.c in Sources */,
+				97376A411E2636A100928397 /* getPeerKey.c in Sources */,
+				97376A3F1E2636A100928397 /* generateHmac.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97B19F4F1DAA76A10021EE2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +238,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		97376A361E26368300928397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				DEVELOPMENT_TEAM = U8MSEX235L;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/ssl/include;
+			};
+			name = Debug;
+		};
+		97376A371E26368300928397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				DEVELOPMENT_TEAM = U8MSEX235L;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/ssl/include;
+			};
+			name = Release;
+		};
 		97B19F581DAA76A10021EE2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,6 +392,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "ecdhKeyAgreement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97376A361E26368300928397 /* Debug */,
+				97376A371E26368300928397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		97B19F4E1DAA76A10021EE2A /* Build configuration list for PBXProject "magicPointers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
