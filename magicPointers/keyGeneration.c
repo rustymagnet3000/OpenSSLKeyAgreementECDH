@@ -3,7 +3,6 @@
 void handleErrors(void)
 {
     ERR_print_errors_fp(stderr);
-    abort();
 }
 
 unsigned char *generate_ecdh(size_t *secret_len)

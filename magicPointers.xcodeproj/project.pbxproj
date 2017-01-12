@@ -21,6 +21,23 @@
 		97376A431E26371C00928397 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
 		97376A441E26371C00928397 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		973CD4E31E1D72D4006CDB2F /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
+		975702D51E27A410007028BC /* conductor.c in Sources */ = {isa = PBXBuildFile; fileRef = 975702D31E27A410007028BC /* conductor.c */; };
+		975702DE1E27A546007028BC /* iOSEcdhLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 975702DD1E27A546007028BC /* iOSEcdhLib.m */; };
+		975702DF1E27A546007028BC /* iOSEcdhLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 975702DC1E27A546007028BC /* iOSEcdhLib.h */; };
+		975702F01E27BD01007028BC /* conductor.c in Sources */ = {isa = PBXBuildFile; fileRef = 975702D31E27A410007028BC /* conductor.c */; };
+		975702F11E27BD01007028BC /* conductor.h in Headers */ = {isa = PBXBuildFile; fileRef = 975702D41E27A410007028BC /* conductor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975702F21E27BD01007028BC /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
+		975702F31E27BD01007028BC /* generateBinaryKeyFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975702F41E27BD01007028BC /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
+		975702F51E27BD01007028BC /* keyGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9736338C1E0C945400121F51 /* keyGeneration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975702F61E27BD01007028BC /* generatePemFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052731E0DE4CE000F2842 /* generatePemFile.c */; };
+		975702F71E27BD01007028BC /* generatePemFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F052741E0DE4CE000F2842 /* generatePemFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975702F81E27BD01007028BC /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
+		975702F91E27BD01007028BC /* generateHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F0527B1E154C26000F2842 /* generateHmac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975702FA1E27BD01007028BC /* getPeerKey.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052761E145741000F2842 /* getPeerKey.c */; };
+		975702FB1E27BD01007028BC /* getPeerKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F052771E145741000F2842 /* getPeerKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975703051E27C129007028BC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
+		9757030D1E27C268007028BC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		97B19F571DAA76A10021EE2A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B19F561DAA76A10021EE2A /* main.c */; };
 		97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
 		97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
@@ -30,6 +47,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		975702D81E27A546007028BC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				975702DF1E27A546007028BC /* iOSEcdhLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97B19F511DAA76A10021EE2A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,9 +71,14 @@
 /* Begin PBXFileReference section */
 		9736338B1E0C945400121F51 /* keyGeneration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyGeneration.c; sourceTree = "<group>"; };
 		9736338C1E0C945400121F51 /* keyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyGeneration.h; sourceTree = "<group>"; };
-		97376A351E26368300928397 /* libecdhKeyAgreement.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libecdhKeyAgreement.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		97376A351E26368300928397 /* libmacOSEcdhLib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmacOSEcdhLib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generateBinaryKeyFile.c; sourceTree = "<group>"; };
 		973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generateBinaryKeyFile.h; sourceTree = "<group>"; };
+		975702D31E27A410007028BC /* conductor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = conductor.c; sourceTree = "<group>"; };
+		975702D41E27A410007028BC /* conductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conductor.h; sourceTree = "<group>"; };
+		975702DA1E27A546007028BC /* libiOSEcdhLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSEcdhLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		975702DC1E27A546007028BC /* iOSEcdhLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSEcdhLib.h; sourceTree = "<group>"; };
+		975702DD1E27A546007028BC /* iOSEcdhLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSEcdhLib.m; sourceTree = "<group>"; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F561DAA76A10021EE2A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -69,6 +101,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		975702D71E27A546007028BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9757030D1E27C268007028BC /* libssl.a in Frameworks */,
+				975703051E27C129007028BC /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97B19F501DAA76A10021EE2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,10 +122,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		975702DB1E27A546007028BC /* iOSEcdhLib */ = {
+			isa = PBXGroup;
+			children = (
+				975702DC1E27A546007028BC /* iOSEcdhLib.h */,
+				975702DD1E27A546007028BC /* iOSEcdhLib.m */,
+			);
+			path = iOSEcdhLib;
+			sourceTree = "<group>";
+		};
 		97B19F4A1DAA76A10021EE2A = {
 			isa = PBXGroup;
 			children = (
 				97B19F551DAA76A10021EE2A /* magicPointers */,
+				975702DB1E27A546007028BC /* iOSEcdhLib */,
 				97B19F541DAA76A10021EE2A /* Products */,
 				97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */,
 				97D12FDF1E0DDE4F0059EFCF /* libssl.a */,
@@ -95,7 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				97B19F531DAA76A10021EE2A /* magicPointers */,
-				97376A351E26368300928397 /* libecdhKeyAgreement.dylib */,
+				97376A351E26368300928397 /* libmacOSEcdhLib.dylib */,
+				975702DA1E27A546007028BC /* libiOSEcdhLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				97B19F561DAA76A10021EE2A /* main.c */,
+				975702D31E27A410007028BC /* conductor.c */,
+				975702D41E27A410007028BC /* conductor.h */,
 				973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */,
 				973CD4E21E1D72D4006CDB2F /* generateBinaryKeyFile.h */,
 				9736338B1E0C945400121F51 /* keyGeneration.c */,
@@ -133,12 +187,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		975702E31E27A570007028BC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				975702F11E27BD01007028BC /* conductor.h in Headers */,
+				975702F31E27BD01007028BC /* generateBinaryKeyFile.h in Headers */,
+				975702F51E27BD01007028BC /* keyGeneration.h in Headers */,
+				975702F71E27BD01007028BC /* generatePemFile.h in Headers */,
+				975702FB1E27BD01007028BC /* getPeerKey.h in Headers */,
+				975702F91E27BD01007028BC /* generateHmac.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		97376A341E26368300928397 /* ecdhKeyAgreement */ = {
+		97376A341E26368300928397 /* macOSEcdhLib */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "ecdhKeyAgreement" */;
+			buildConfigurationList = 97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "macOSEcdhLib" */;
 			buildPhases = (
 				97376A311E26368300928397 /* Sources */,
 				97376A321E26368300928397 /* Frameworks */,
@@ -148,10 +215,28 @@
 			);
 			dependencies = (
 			);
-			name = ecdhKeyAgreement;
+			name = macOSEcdhLib;
 			productName = ecdhKeyAgreement;
-			productReference = 97376A351E26368300928397 /* libecdhKeyAgreement.dylib */;
+			productReference = 97376A351E26368300928397 /* libmacOSEcdhLib.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
+		};
+		975702D91E27A546007028BC /* iOSEcdhLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 975702E01E27A546007028BC /* Build configuration list for PBXNativeTarget "iOSEcdhLib" */;
+			buildPhases = (
+				975702D61E27A546007028BC /* Sources */,
+				975702D71E27A546007028BC /* Frameworks */,
+				975702D81E27A546007028BC /* CopyFiles */,
+				975702E31E27A570007028BC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSEcdhLib;
+			productName = iOSEcdhLib;
+			productReference = 975702DA1E27A546007028BC /* libiOSEcdhLib.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		97B19F521DAA76A10021EE2A /* magicPointers */ = {
 			isa = PBXNativeTarget;
@@ -184,6 +269,11 @@
 						DevelopmentTeam = U8MSEX235L;
 						ProvisioningStyle = Automatic;
 					};
+					975702D91E27A546007028BC = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U8MSEX235L;
+						ProvisioningStyle = Automatic;
+					};
 					97B19F521DAA76A10021EE2A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = U8MSEX235L;
@@ -204,7 +294,8 @@
 			projectRoot = "";
 			targets = (
 				97B19F521DAA76A10021EE2A /* magicPointers */,
-				97376A341E26368300928397 /* ecdhKeyAgreement */,
+				97376A341E26368300928397 /* macOSEcdhLib */,
+				975702D91E27A546007028BC /* iOSEcdhLib */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +313,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		975702D61E27A546007028BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				975702FA1E27BD01007028BC /* getPeerKey.c in Sources */,
+				975702DE1E27A546007028BC /* iOSEcdhLib.m in Sources */,
+				975702F41E27BD01007028BC /* keyGeneration.c in Sources */,
+				975702F21E27BD01007028BC /* generateBinaryKeyFile.c in Sources */,
+				975702F01E27BD01007028BC /* conductor.c in Sources */,
+				975702F61E27BD01007028BC /* generatePemFile.c in Sources */,
+				975702F81E27BD01007028BC /* generateHmac.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97B19F4F1DAA76A10021EE2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +336,7 @@
 				97B19F571DAA76A10021EE2A /* main.c in Sources */,
 				97F0527A1E154C19000F2842 /* generateHmac.c in Sources */,
 				97F052781E145741000F2842 /* getPeerKey.c in Sources */,
+				975702D51E27A410007028BC /* conductor.c in Sources */,
 				9736338D1E0C945400121F51 /* keyGeneration.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +375,47 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /usr/local/ssl/include;
+			};
+			name = Release;
+		};
+		975702E11E27A546007028BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U8MSEX235L;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = /usr/local/ssl/include;
+			};
+			name = Debug;
+		};
+		975702E21E27A546007028BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U8MSEX235L;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = /usr/local/ssl/include;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -392,11 +539,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "ecdhKeyAgreement" */ = {
+		97376A381E26368300928397 /* Build configuration list for PBXNativeTarget "macOSEcdhLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97376A361E26368300928397 /* Debug */,
 				97376A371E26368300928397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		975702E01E27A546007028BC /* Build configuration list for PBXNativeTarget "iOSEcdhLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				975702E11E27A546007028BC /* Debug */,
+				975702E21E27A546007028BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

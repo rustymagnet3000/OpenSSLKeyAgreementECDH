@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ecdhKeyAgreement.xcscheme</key>
+		<key>iOSEcdhLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>macOSEcdhLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -18,6 +23,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>97376A341E26368300928397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>975702D91E27A546007028BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

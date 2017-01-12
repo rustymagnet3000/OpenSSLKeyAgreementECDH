@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97376A341E26368300928397"
-               BuildableName = "libecdhKeyAgreement.dylib"
-               BlueprintName = "ecdhKeyAgreement"
+               BlueprintIdentifier = "975702D91E27A546007028BC"
+               BuildableName = "libiOSEcdhLib.a"
+               BlueprintName = "iOSEcdhLib"
                ReferencedContainer = "container:magicPointers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97376A341E26368300928397"
-            BuildableName = "libecdhKeyAgreement.dylib"
-            BlueprintName = "ecdhKeyAgreement"
+            BlueprintIdentifier = "975702D91E27A546007028BC"
+            BuildableName = "libiOSEcdhLib.a"
+            BlueprintName = "iOSEcdhLib"
             ReferencedContainer = "container:magicPointers.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97376A341E26368300928397"
-            BuildableName = "libecdhKeyAgreement.dylib"
-            BlueprintName = "ecdhKeyAgreement"
+            BlueprintIdentifier = "975702D91E27A546007028BC"
+            BuildableName = "libiOSEcdhLib.a"
+            BlueprintName = "iOSEcdhLib"
             ReferencedContainer = "container:magicPointers.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

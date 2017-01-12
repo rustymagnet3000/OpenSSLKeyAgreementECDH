@@ -16,5 +16,6 @@ unsigned char *generate_sha256_hmac(unsigned char *key, size_t *keylen, unsigned
         sprintf((char *)&(res_hexstring[i * 2]), "%02x", out[i]);
     
     HMAC_cleanup(&ctx);
+    
     return res_hexstring;
 }
