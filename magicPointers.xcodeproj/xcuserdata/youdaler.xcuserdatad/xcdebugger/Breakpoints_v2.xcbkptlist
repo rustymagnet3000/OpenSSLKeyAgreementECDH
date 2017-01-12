@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "magicPointers/keyGeneration.c"
-            timestampString = "505728977.135796"
+            timestampString = "505930173.658407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "generate_ecdh()"
             landmarkType = "9">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "magicPointers/keyGeneration.c"
-            timestampString = "505728980.30843"
+            timestampString = "505928695.881669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "generate_ecdh()"
             landmarkType = "9">
          </BreakpointContent>
@@ -90,12 +90,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "magicPointers/keyGeneration.c"
-            timestampString = "505729160.30221"
+            timestampString = "505928695.881669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "generate_ecdh()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "magicPointers/conductor.c"
+            timestampString = "505930411.709363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "result_ec_key_generation()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

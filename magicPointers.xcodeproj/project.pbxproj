@@ -22,8 +22,6 @@
 		97376A441E26371C00928397 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		973CD4E31E1D72D4006CDB2F /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
 		975702D51E27A410007028BC /* conductor.c in Sources */ = {isa = PBXBuildFile; fileRef = 975702D31E27A410007028BC /* conductor.c */; };
-		975702DE1E27A546007028BC /* iOSEcdhLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 975702DD1E27A546007028BC /* iOSEcdhLib.m */; };
-		975702DF1E27A546007028BC /* iOSEcdhLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 975702DC1E27A546007028BC /* iOSEcdhLib.h */; };
 		975702F01E27BD01007028BC /* conductor.c in Sources */ = {isa = PBXBuildFile; fileRef = 975702D31E27A410007028BC /* conductor.c */; };
 		975702F11E27BD01007028BC /* conductor.h in Headers */ = {isa = PBXBuildFile; fileRef = 975702D41E27A410007028BC /* conductor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		975702F21E27BD01007028BC /* generateBinaryKeyFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 973CD4E11E1D72D4006CDB2F /* generateBinaryKeyFile.c */; };
@@ -53,7 +51,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				975702DF1E27A546007028BC /* iOSEcdhLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,8 +74,6 @@
 		975702D31E27A410007028BC /* conductor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = conductor.c; sourceTree = "<group>"; };
 		975702D41E27A410007028BC /* conductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conductor.h; sourceTree = "<group>"; };
 		975702DA1E27A546007028BC /* libiOSEcdhLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSEcdhLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		975702DC1E27A546007028BC /* iOSEcdhLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSEcdhLib.h; sourceTree = "<group>"; };
-		975702DD1E27A546007028BC /* iOSEcdhLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSEcdhLib.m; sourceTree = "<group>"; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F561DAA76A10021EE2A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -122,23 +117,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		975702DB1E27A546007028BC /* iOSEcdhLib */ = {
+		975703121E27C50D007028BC /* OpenSSL */ = {
 			isa = PBXGroup;
 			children = (
-				975702DC1E27A546007028BC /* iOSEcdhLib.h */,
-				975702DD1E27A546007028BC /* iOSEcdhLib.m */,
+				97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */,
+				97D12FDF1E0DDE4F0059EFCF /* libssl.a */,
 			);
-			path = iOSEcdhLib;
+			name = OpenSSL;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		97B19F4A1DAA76A10021EE2A = {
 			isa = PBXGroup;
 			children = (
 				97B19F551DAA76A10021EE2A /* magicPointers */,
-				975702DB1E27A546007028BC /* iOSEcdhLib */,
 				97B19F541DAA76A10021EE2A /* Products */,
-				97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */,
-				97D12FDF1E0DDE4F0059EFCF /* libssl.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +161,7 @@
 				97F0527B1E154C26000F2842 /* generateHmac.h */,
 				97F052761E145741000F2842 /* getPeerKey.c */,
 				97F052771E145741000F2842 /* getPeerKey.h */,
+				975703121E27C50D007028BC /* OpenSSL */,
 			);
 			path = magicPointers;
 			sourceTree = "<group>";
@@ -318,7 +312,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				975702FA1E27BD01007028BC /* getPeerKey.c in Sources */,
-				975702DE1E27A546007028BC /* iOSEcdhLib.m in Sources */,
 				975702F41E27BD01007028BC /* keyGeneration.c in Sources */,
 				975702F21E27BD01007028BC /* generateBinaryKeyFile.c in Sources */,
 				975702F01E27BD01007028BC /* conductor.c in Sources */,

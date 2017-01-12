@@ -7,10 +7,11 @@
 #include <openssl/ec.h>
 #include <strings.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "generatePemFile.h"
 #include "getPeerKey.h"
 
-unsigned char *generate_ecdh(size_t *secret_len);
+unsigned char *generate_ecdh(bool *res, size_t *secret_len);
 
 #endif /* keyGeneration_h */
