@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include "keyGeneration.h"
 #include "generateHmac.h"
-#include "generateBinaryKeyFile.h"
 
 bool result_ec_key_generation();
 bool result_derived_secret();

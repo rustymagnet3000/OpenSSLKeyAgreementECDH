@@ -8,9 +8,7 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-#include "generatePemFile.h"
-#include "getPeerKey.h"
+#include <openssl/pem.h>
 
 unsigned char *generate_ecdh(bool *res, size_t *secret_len);
 

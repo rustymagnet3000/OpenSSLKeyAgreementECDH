@@ -6,6 +6,7 @@ unsigned char *derived_secret;
 bool step1result;
 bool step2result;
 
+
 bool result_ec_key_generation() {
     
     step1result = false;
@@ -27,14 +28,9 @@ bool result_derived_secret() {
     
     if(step1result == false) goto end;
     
-    static unsigned char key[] = {0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B,0x0B};
-    size_t key_size = sizeof(key);
-
-    unsigned char *derived_keyed_hashed = generate_sha256_hmac(key, &key_size, derived_secret, &secret_size);
+    unsigned char *derived_keyed_hashed = generate_sha256_hmac(derived_secret, &secret_size);
     
     printf("\n✅\tDerived SHA256-HMAC digest was: \n%s\n\n", derived_keyed_hashed);
-    
-    generate_bin_key_file(derived_keyed_hashed);
     
     step2result = true;
     goto end;

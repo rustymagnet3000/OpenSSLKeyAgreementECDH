@@ -1,4 +1,70 @@
 #include "keyGeneration.h"
+#define PEER_PUBLIC_KEY_FILENAME "appPubKey.pem"
+#define PUBLIC_KEY_FILENAME "serPubKey.pem"
+#define PRIVATE_KEY_FILENAME "serPriKey.pem"
+
+static void *generate_pem_file(EVP_PKEY *evp_pkey)
+{
+    FILE *fp;
+    
+    if((fp = fopen(PUBLIC_KEY_FILENAME, "w")) == NULL)
+        goto err;
+    
+    if (!PEM_write_PUBKEY(fp, evp_pkey))
+        goto err;
+    
+    if((fp = fopen(PRIVATE_KEY_FILENAME, "w")) == NULL)
+        goto err;
+    
+    // TODO: Write an encrypted private key
+    if (!PEM_write_PrivateKey(fp, evp_pkey, NULL, NULL, 0, 0, NULL))
+        goto err;
+    
+    printf("✅\tGenerated EC Key Pair and written PEM files\n");
+    goto end;
+    
+err:
+    ERR_print_errors_fp(stderr);
+    goto end;
+    
+end:
+    fclose(fp);
+    return(0);
+}
+
+static void *get_peer_key()
+{
+    FILE *fp;
+    EVP_PKEY *peerKey = NULL;
+    
+    if((fp = fopen(PEER_PUBLIC_KEY_FILENAME, "r")) == NULL)
+        goto err;
+    
+    fseek(fp, 0, SEEK_END);
+    unsigned long fileLength = (unsigned long)ftell(fp);
+    rewind(fp);
+    
+    if(fileLength == 0 )
+        goto err;
+    
+    peerKey = PEM_read_PUBKEY(fp, NULL, NULL, NULL);
+    if (peerKey == NULL)
+        goto err;
+    
+    printf("✅\tRead %lu characters from Peer Public Key file", fileLength);
+    goto end;
+    
+err:
+    printf("❗️error reading peer public key\n");
+    ERR_print_errors_fp(stderr);
+    peerKey = NULL;
+    
+end:
+    fclose(fp);
+    return(peerKey);
+}
+
+
 
 unsigned char *generate_ecdh(bool *res, size_t *secret_len)
 {
