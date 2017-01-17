@@ -1,6 +1,6 @@
 #include "keyGeneration.h"
 
-#define PEER_PUBLIC_KEY_FILENAME "appPubKey.pem"
+#define PEER_PUBLIC_KEY_FILENAME "peerPubKey.pem"
 #define PUBLIC_KEY_FILENAME "serPubKey.pem"
 #define PRIVATE_KEY_FILENAME "serPriKey.pem"
 
@@ -21,7 +21,7 @@ static void *generate_pem_file(EVP_PKEY *evp_pkey)
     if (!PEM_write_PrivateKey(fp, evp_pkey, NULL, NULL, 0, 0, NULL))
         goto err;
     
-    printf("✅\tGenerated EC Key Pair and written PEM files\n");
+    printf("✅\tGenerated EC Key Pair.\n✅\tWritten PEM files.\n");
     goto end;
     
 err:
@@ -33,10 +33,10 @@ end:
     return(0);
 }
 
-static void *get_peer_key()
+static EVP_PKEY *get_peer_key()
 {
     FILE *fp;
-    EVP_PKEY *peerKey = NULL;
+    EVP_PKEY *peer_key = NULL;
     
     if((fp = fopen(PEER_PUBLIC_KEY_FILENAME, "r")) == NULL)
         goto err;
@@ -48,21 +48,21 @@ static void *get_peer_key()
     if(fileLength == 0 )
         goto err;
     
-    peerKey = PEM_read_PUBKEY(fp, NULL, NULL, NULL);
-    if (peerKey == NULL)
+    peer_key = PEM_read_PUBKEY(fp, NULL, NULL, NULL);
+    
+    if (peer_key == NULL)
         goto err;
     
-    printf("✅\tRead %lu characters from Peer Public Key file", fileLength);
+    printf("✅\tPeer Public Key file. Read %lu characters.", fileLength);
     goto end;
     
 err:
     printf("❗️error reading peer public key\n");
-    ERR_print_errors_fp(stderr);
-    peerKey = NULL;
+    peer_key = NULL;
     
 end:
     fclose(fp);
-    return(peerKey);
+    return(peer_key);
 }
 
 
@@ -96,9 +96,8 @@ static unsigned char *generate_ecdh(bool *res, size_t *secret_len)
     /* Generate the Key PEM files  */
     generate_pem_file(pkey);
     
-    /* Get the peer's public key  */
-    peerkey = get_peer_key();
-    if (!peerkey) goto err;
+    /* Get the peer's public key: updated so null returned on error  */
+    if((peerkey = get_peer_key()) == NULL) goto err;
     
     /* Create the context for the shared secret derivation */
     if(NULL == (ctx = EVP_PKEY_CTX_new(pkey, NULL))) goto err;
@@ -128,12 +127,12 @@ err:
     goto end;
     
 end:
-    EVP_PKEY_CTX_free(ctx);
-    EVP_PKEY_free(peerkey);
-    EVP_PKEY_free(pkey);
-    EVP_PKEY_CTX_free(kctx);
-    EVP_PKEY_free(params);
-    EVP_PKEY_CTX_free(pctx);
+    if(ctx) EVP_PKEY_CTX_free(ctx);
+    if(peerkey) EVP_PKEY_free(peerkey);
+    if(pkey) EVP_PKEY_free(pkey);
+    if(kctx) EVP_PKEY_CTX_free(kctx);
+    if(params) EVP_PKEY_free(params);
+    if(pctx) EVP_PKEY_CTX_free(pctx);
     return secret;
 }
 

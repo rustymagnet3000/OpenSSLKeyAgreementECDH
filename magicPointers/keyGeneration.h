@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <openssl/pem.h>
+
 #include "generateHmac.h"
 
 bool result_ecdh_key_derivation();

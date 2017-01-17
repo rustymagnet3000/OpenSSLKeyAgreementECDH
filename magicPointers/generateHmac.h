@@ -7,8 +7,6 @@
 #include <openssl/sha.h>
 #include <string.h>
 
-#include "keyGeneration.h"
-
 unsigned char *generate_sha256_hmac(unsigned char *derived_secret, const size_t *derived_secret_length);
 
 #endif // GENERATEHMAC_H_
