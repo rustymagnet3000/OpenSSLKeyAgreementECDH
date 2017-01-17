@@ -9,7 +9,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <openssl/pem.h>
+#include "generateHmac.h"
 
-unsigned char *generate_ecdh(bool *res, size_t *secret_len);
+bool result_ecdh_key_derivation();
 
 #endif /* keyGeneration_h */

@@ -6,11 +6,6 @@ static void get_hmac_key(unsigned char *key_ptr, size_t *key_size) {
     
     /* TODO: Replace this 20 char NIST Key with secret key */
     memset( key_ptr, 0x0B, sizeof( unsigned char ) * *key_size );
-    
-    printf("In get hmac Key function. The Key is: %p\n", key_ptr);
-    for(int i = 0; i < *key_size; i++)
-        printf("%02x ", key_ptr[i]);
-    printf("\n");
 }
 
 static void *generate_bin_key_file(unsigned char *derived_secret, unsigned int *secret_length)
@@ -37,6 +32,7 @@ unsigned char *generate_sha256_hmac(unsigned char *derived_secret, const size_t 
     size_t key_size = 20;
     unsigned char *key_ptr = malloc( sizeof( unsigned char ) * key_size );
     get_hmac_key(key_ptr, &key_size);
+    
     unsigned char out[SHA256_DIGEST_LENGTH];
     static unsigned char res_hexstring[32];
 
@@ -50,5 +46,7 @@ unsigned char *generate_sha256_hmac(unsigned char *derived_secret, const size_t 
         sprintf((char *)&(res_hexstring[i * 2]), "%02x", out[i]);
     
     HMAC_cleanup(&ctx);
+    free(key_ptr);
+    
     return res_hexstring;
 }

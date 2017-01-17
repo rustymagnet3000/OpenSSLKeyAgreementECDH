@@ -1,4 +1,5 @@
 #include "keyGeneration.h"
+
 #define PEER_PUBLIC_KEY_FILENAME "appPubKey.pem"
 #define PUBLIC_KEY_FILENAME "serPubKey.pem"
 #define PRIVATE_KEY_FILENAME "serPriKey.pem"
@@ -66,7 +67,7 @@ end:
 
 
 
-unsigned char *generate_ecdh(bool *res, size_t *secret_len)
+static unsigned char *generate_ecdh(bool *res, size_t *secret_len)
 {
     EVP_PKEY_CTX *pctx, *kctx;
     EVP_PKEY_CTX *ctx;
@@ -124,15 +125,50 @@ err:
     *res = false;
     secret = NULL;
     ERR_print_errors_fp(stderr);
+    goto end;
     
 end:
-    
     EVP_PKEY_CTX_free(ctx);
     EVP_PKEY_free(peerkey);
     EVP_PKEY_free(pkey);
     EVP_PKEY_CTX_free(kctx);
     EVP_PKEY_free(params);
     EVP_PKEY_CTX_free(pctx);
-    
     return secret;
+}
+
+bool result_ecdh_key_derivation() {
+
+    bool ecdh_result = false;
+    unsigned char *derived_secret;
+    unsigned char *derived_keyed_hashed;
+    size_t secret_size = 32;
+    
+    derived_secret = malloc( sizeof( unsigned char ) * secret_size );
+    derived_secret = generate_ecdh(&ecdh_result, &secret_size);
+    
+    if(ecdh_result == false) goto err;
+    if(derived_secret == NULL) goto err;
+    
+    printf("\n✅\tSecret Key in memory:\n");
+    for(int i = 0; i < secret_size; i++)
+        printf("%02x", derived_secret[i]);
+    
+    derived_keyed_hashed = generate_sha256_hmac(derived_secret, &secret_size);
+    if(derived_keyed_hashed == NULL) goto err;
+    
+    printf("\n✅\tDerived SHA256-HMAC digest was: \n%s\n\n", derived_keyed_hashed);
+    
+    goto end;
+    
+err:
+    ecdh_result = false;
+    ERR_print_errors_fp(stderr);
+    goto end;
+
+
+end:
+    free(derived_secret);
+    
+    return ecdh_result;
 }
