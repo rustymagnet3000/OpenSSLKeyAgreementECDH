@@ -1,8 +1,8 @@
 #include "keyGeneration.h"
 
-#define PEER_PUBLIC_KEY_FILENAME "peerPubKey.pem"
 #define PUBLIC_KEY_FILENAME "serPubKey.pem"
 #define PRIVATE_KEY_FILENAME "serPriKey.pem"
+#define MAX_FILE_LOCATION 1024
 
 static void *generate_pem_file(EVP_PKEY *evp_pkey)
 {
@@ -33,12 +33,44 @@ end:
     return(0);
 }
 
-static EVP_PKEY *get_peer_key()
+bool read_peer_key(char *file_location)
+{
+    bool result = false;
+    char file_location_buffer[MAX_FILE_LOCATION];
+    char *ptr_final_file_location;
+    size_t length;
+    
+    length = strlcpy(file_location_buffer, file_location, sizeof(file_location_buffer)); // Copy to a fast block of memory on the stack:
+    
+   
+    if(length == 0) goto err;
+    
+    if (length < sizeof(file_location_buffer)) {
+        ptr_final_file_location = file_location_buffer;
+        printf("The final filepath is: %s\n", ptr_final_file_location);
+    } else {
+        goto err;
+    }
+    
+    result = true;
+    goto end;
+    
+err:
+    result = false;
+    printf("❗️error reading peer public key\n");
+    goto end;
+    
+end:
+    return result;
+}
+
+
+static EVP_PKEY *get_peer_key(char *peer_key_file_final)
 {
     FILE *fp;
     EVP_PKEY *peer_key = NULL;
-    
-    if((fp = fopen(PEER_PUBLIC_KEY_FILENAME, "r")) == NULL)
+
+    if((fp = fopen(peer_key_file_final, "r")) == NULL)
         goto err;
     
     fseek(fp, 0, SEEK_END);
@@ -67,7 +99,7 @@ end:
 
 
 
-static unsigned char *generate_ecdh(bool *res, size_t *secret_len)
+static unsigned char *generate_ecdh(bool *res, size_t *secret_len, char *peer_key_file)
 {
     EVP_PKEY_CTX *pctx, *kctx;
     EVP_PKEY_CTX *ctx;
@@ -97,7 +129,7 @@ static unsigned char *generate_ecdh(bool *res, size_t *secret_len)
     generate_pem_file(pkey);
     
     /* Get the peer's public key: updated so null returned on error  */
-    if((peerkey = get_peer_key()) == NULL) goto err;
+    if((peerkey = get_peer_key(peer_key_file)) == NULL) goto err;
     
     /* Create the context for the shared secret derivation */
     if(NULL == (ctx = EVP_PKEY_CTX_new(pkey, NULL))) goto err;
@@ -136,7 +168,7 @@ end:
     return secret;
 }
 
-bool result_ecdh_key_derivation() {
+bool result_ecdh_key_derivation(char *peer_key_file_location, char *binary_key_file_location) {
 
     bool ecdh_result = false;
     unsigned char *derived_secret;
@@ -144,7 +176,7 @@ bool result_ecdh_key_derivation() {
     size_t secret_size = 32;
     
     derived_secret = malloc( sizeof( unsigned char ) * secret_size );
-    derived_secret = generate_ecdh(&ecdh_result, &secret_size);
+    derived_secret = generate_ecdh(&ecdh_result, &secret_size, peer_key_file_location);
     
     if(ecdh_result == false) goto err;
     if(derived_secret == NULL) goto err;
@@ -153,11 +185,11 @@ bool result_ecdh_key_derivation() {
     for(int i = 0; i < secret_size; i++)
         printf("%02x", derived_secret[i]);
     
-    derived_keyed_hashed = generate_sha256_hmac(derived_secret, &secret_size);
+    derived_keyed_hashed = generate_sha256_hmac(derived_secret, &secret_size, binary_key_file_location);
+    
     if(derived_keyed_hashed == NULL) goto err;
     
     printf("\n✅\tDerived SHA256-HMAC digest was: \n%s\n\n", derived_keyed_hashed);
-    
     goto end;
     
 err:
@@ -165,9 +197,7 @@ err:
     ERR_print_errors_fp(stderr);
     goto end;
 
-
 end:
-    free(derived_secret);
-    
+    if(derived_secret) free(derived_secret);
     return ecdh_result;
 }
