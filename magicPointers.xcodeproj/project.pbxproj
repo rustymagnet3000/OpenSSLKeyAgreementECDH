@@ -12,17 +12,19 @@
 		97376A3C1E2636A100928397 /* keyGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9736338C1E0C945400121F51 /* keyGeneration.h */; };
 		97376A3F1E2636A100928397 /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
 		97376A401E2636A100928397 /* generateHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F0527B1E154C26000F2842 /* generateHmac.h */; };
-		97376A431E26371C00928397 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
-		97376A441E26371C00928397 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
+		973D34581E39EC6C000BAB21 /* libcryptoiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D34551E39EC6C000BAB21 /* libcryptoiOS.a */; };
+		973D34591E39EC6C000BAB21 /* libcryptoiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D34551E39EC6C000BAB21 /* libcryptoiOS.a */; };
+		973D345B1E39EC6C000BAB21 /* libssliOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D34561E39EC6C000BAB21 /* libssliOS.a */; };
+		973D345C1E39EC6C000BAB21 /* libssliOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D34561E39EC6C000BAB21 /* libssliOS.a */; };
+		973D345F1E39ECEF000BAB21 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D345D1E39ECEF000BAB21 /* libcrypto.a */; };
+		973D34601E39ECEF000BAB21 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D345D1E39ECEF000BAB21 /* libcrypto.a */; };
+		973D34611E39ECEF000BAB21 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D345E1E39ECEF000BAB21 /* libssl.a */; };
+		973D34621E39ECEF000BAB21 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D345E1E39ECEF000BAB21 /* libssl.a */; };
 		975702F41E27BD01007028BC /* keyGeneration.c in Sources */ = {isa = PBXBuildFile; fileRef = 9736338B1E0C945400121F51 /* keyGeneration.c */; };
 		975702F51E27BD01007028BC /* keyGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9736338C1E0C945400121F51 /* keyGeneration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		975702F81E27BD01007028BC /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
 		975702F91E27BD01007028BC /* generateHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 97F0527B1E154C26000F2842 /* generateHmac.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		975703051E27C129007028BC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
-		9757030D1E27C268007028BC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		97B19F571DAA76A10021EE2A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B19F561DAA76A10021EE2A /* main.c */; };
-		97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */; };
-		97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D12FDF1E0DDE4F0059EFCF /* libssl.a */; };
 		97F0527A1E154C19000F2842 /* generateHmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 97F052791E154C19000F2842 /* generateHmac.c */; };
 /* End PBXBuildFile section */
 
@@ -51,11 +53,13 @@
 		9736338B1E0C945400121F51 /* keyGeneration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyGeneration.c; sourceTree = "<group>"; };
 		9736338C1E0C945400121F51 /* keyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyGeneration.h; sourceTree = "<group>"; };
 		97376A351E26368300928397 /* libmacOSEcdhLib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmacOSEcdhLib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		973D34551E39EC6C000BAB21 /* libcryptoiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcryptoiOS.a; sourceTree = "<group>"; };
+		973D34561E39EC6C000BAB21 /* libssliOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssliOS.a; sourceTree = "<group>"; };
+		973D345D1E39ECEF000BAB21 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		973D345E1E39ECEF000BAB21 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		975702DA1E27A546007028BC /* libiOSEcdhLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSEcdhLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F531DAA76A10021EE2A /* magicPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = magicPointers; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B19F561DAA76A10021EE2A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		97D12FDF1E0DDE4F0059EFCF /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		97F052791E154C19000F2842 /* generateHmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = generateHmac.c; sourceTree = "<group>"; };
 		97F0527B1E154C26000F2842 /* generateHmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generateHmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,8 +69,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97376A441E26371C00928397 /* libssl.a in Frameworks */,
-				97376A431E26371C00928397 /* libcrypto.a in Frameworks */,
+				973D34621E39ECEF000BAB21 /* libssl.a in Frameworks */,
+				973D345B1E39EC6C000BAB21 /* libssliOS.a in Frameworks */,
+				973D34581E39EC6C000BAB21 /* libcryptoiOS.a in Frameworks */,
+				973D34601E39ECEF000BAB21 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9757030D1E27C268007028BC /* libssl.a in Frameworks */,
-				975703051E27C129007028BC /* libcrypto.a in Frameworks */,
+				973D345C1E39EC6C000BAB21 /* libssliOS.a in Frameworks */,
+				973D34591E39EC6C000BAB21 /* libcryptoiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97D12FE11E0DDE4F0059EFCF /* libssl.a in Frameworks */,
-				97D12FE01E0DDE4F0059EFCF /* libcrypto.a in Frameworks */,
+				973D34611E39ECEF000BAB21 /* libssl.a in Frameworks */,
+				973D345F1E39ECEF000BAB21 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +100,10 @@
 		975703121E27C50D007028BC /* OpenSSL */ = {
 			isa = PBXGroup;
 			children = (
-				97D12FDE1E0DDE4F0059EFCF /* libcrypto.a */,
-				97D12FDF1E0DDE4F0059EFCF /* libssl.a */,
+				973D345D1E39ECEF000BAB21 /* libcrypto.a */,
+				973D345E1E39ECEF000BAB21 /* libssl.a */,
+				973D34551E39EC6C000BAB21 /* libcryptoiOS.a */,
+				973D34561E39EC6C000BAB21 /* libssliOS.a */,
 			);
 			name = OpenSSL;
 			path = ..;
