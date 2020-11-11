@@ -1,38 +1,65 @@
-# Overview
-The code in this repo relies on OpenSSL's C code library and command line tool.  The commands in this README.md mirror the same function as the C code but use OpenSSL's command line tool.  The C code represents my User 1 and the command line pieces represent User 2.   This is useful as it helps demo how ECDH works and validates that both sides are deriving the same key. NOTE - the HMAC operation, after the ECDH piece has completed, has been verified against https://tools.ietf.org/html/rfc4231
+## Overview
+This repo demonstrates how `Elliptic Curve Diffie-Hellman (ECDH)` works and validates that both sides are deriving the same key.
+
+<!-- TOC depthFrom:3 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Setup](#setup)
+- [Background - Diffie-Hellman](#background-diffie-hellman)
+- [Diffie-Hellman alone is not enough](#diffie-hellman-alone-is-not-enough)
+- [Setup OpenSSL's Command Line Tool](#setup-openssls-command-line-tool)
+- [Select a well known, well tested Curve](#select-a-well-known-well-tested-curve)
+- [User 1:  Setup is all done in C code](#user-1-setup-is-all-done-in-c-code)
+- [Checkpoints](#checkpoints)
+- [Checkpoint: Print out the C code](#checkpoint-print-out-the-c-code)
+- [User 2:  Setup](#user-2-setup)
+- [Checkpoint: Check your Key Pair, Public Key](#checkpoint-check-your-key-pair-public-key)
+- [Checkpoint: Check your Key Pair, Private Key](#checkpoint-check-your-key-pair-private-key)
+- [User 2: get Server’s Public Key](#user-2-get-servers-public-key)
+- [User 2: attempt to generate the Secret Key](#user-2-attempt-to-generate-the-secret-key)
+- [Checkpoint - almost there - Keys must be equal](#checkpoint-almost-there-keys-must-be-equal)
+- [Now add Authenticity to your Derived Secret](#now-add-authenticity-to-your-derived-secret)
+- [Final test to ensure keys match](#final-test-to-ensure-keys-match)
+- [Checkpoint : make keys readable](#checkpoint-make-keys-readable)
+
+<!-- /TOC -->
+
+### Setup
+The code in this repo relies on `OpenSSL's C code library` and `command line tool`.  You don't share the `binaries` via github.
 
 ### Background - Diffie-Hellman
-Diffie-Hellman is a Key Agreement protocol.  It is used when two parties want to derive the same shared secret over an insecure channel. The secret key cannot be observed by intercepting the communication between the two parties.  
+`Diffie-Hellman` is a `Key Agreement protocol`.  It is used when **two parties want to derive the same shared secret over an insecure channel**. The secret key cannot be observed by intercepting the communication between the two parties.  
 
  - Each party MUST share their own EC Public Key with the other party.
  - Each party MUST agree on the Named Curved being used before generating the EC Key Pair.
  - The two parties NEVER exchange the derived key.  
 
-### Background - Diffie-Hellman alone is not enough
-Diffie-Hellman provides no mechanism for ensuring that the entity on the other end of the connection is who you think it is. For mobile apps, this is where the value of other Data in Transit controls such as Certificate Pinning, HTTP Basic Auth, Access Token schemes come into play.
+ `Elliptic Curve Diffie-Hellman (ECDH)` is an `Elliptic Curve` variant of the standard `Diffie Hellman algorithm`. `Elliptic Curve` has two notable advantages over `RSA`, when used with mobile apps:
 
-### Background - Why use ECDH?
-Elliptic Curve Diffie-Hellman (ECDH) is an Elliptic Curve variant of the standard Diffie Hellman algorithm.  I like it over traditional DH which uses RSA for two reasons:
- - Key generation is quicker.  This is important for mobile apps when you might rotate your keys or even generate new EC Key Pairs for each session. 
- - A slightly simpler Key Derivation process.  You only need the other side's Public Key as you both have already agreed on a Named Curve [and the parameters to use in Key Generation].
+  - Key generation is quicker.  This is important for mobile apps when you might rotate your keys or even generate new EC Key Pairs for each session.
+  - A slightly simpler Key Derivation process.  You only need the other side's Public Key as you both have already agreed on a Named Curve [and the parameters to use in Key Generation].
+
+### Diffie-Hellman alone is not enough
+`Diffie-Hellman` provides no mechanism for ensuring that the entity on the other end of the connection is who you think it is. For mobile apps, this is where the value of other `Data in Transit controls` such as `Certificate Pinning` come into play.
+
+In the repo there is a `Keyed hashed` step after the ECDH piece has completed. This `HMAC` step has been verified against https://tools.ietf.org/html/rfc4231
 
 ### Setup OpenSSL's Command Line Tool
+The commands below mirror the same function as the C code.  The C code represents **User 1** and the command line pieces represent **User 2**.   
+
+
 Print version (and All information) regarding OpenSSL install
 
 `openssl version -a`
 
-This will spit out your version which is likely to look like: 
+This will spit out your version which is likely to look like:
 
-*OpenSSL 1.0.2h  3 May 2016*
+*OpenSSL 1.1.1  11 Sep 2018*
 
 Find out where it located on your machine:
 `which openssl`
 
 Smoke test it works:
-`openssl` 
-
-and then type:
-`speed`
+`openssl speed`
 
 ### Select a well known, well tested Curve
 To generate a ECDH key pair (not a DH key pair), with the OpenSSL command-line tool you must first select one of the available curves. A named curve is simply a well defined and well known set of parameters that define an elliptic curve.  
@@ -63,7 +90,7 @@ Print out the C code that was used to generate the EC Parameters.
 
 `openssl ecparam -in ec_param.pem -text -C`
 
-### User 2:  Setup 
+### User 2:  Setup
 Generate a ECDH Key Pair and state <B>Explicit parameters</B>.
 
 `openssl ecparam -in ec_paramprime256v1.pem -genkey -noout -out appKey.pem -param_enc explicit`
@@ -113,5 +140,5 @@ This step assumes both parties shared - out of band - a shared key that is used 
 Convert the binary key to a b64 key
 `openssl base64 -in serBinaryKey.bin -out serB64Key.txt`
 
-You don’t need the following step but it shows the step is reversible 
+You don’t need the following step but it shows the step is reversible
 `$ openssl base64 -d -in secret1.b64 -out secret3.bin`
